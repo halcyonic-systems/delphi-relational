@@ -1,1 +1,2 @@
 import RelationalLaws.Replication
+import RelationalLaws.Closure

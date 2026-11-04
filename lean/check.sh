@@ -1,7 +1,8 @@
 #!/bin/sh
 # Checks the relational-biology Lean laws the way the DELPHI law registry does:
 #   1. the library builds;
-#   2. no `sorry` and only Lean's standard axioms (propext, Classical.choice, Quot.sound);
+#   2. no `sorry`, and every theorem uses only Lean's standard axioms
+#      (propext, Classical.choice, Quot.sound);
 #   3. every file in broken/ fails to compile, and fails on a proof error,
 #      not on a missing name or a syntax slip.
 set -eu
@@ -17,8 +18,12 @@ fi
 AX=$(mktemp -t axioms).lean
 {
   echo 'import RelationalLaws'
-  for t in replicates_iff_evalInjective not_replicates_full replicates_constant repair_is_metabolism_up; do
-    echo "#print axioms RelationalLaws.Replication.$t"
+  # every theorem in every module, qualified by the module's namespace
+  for f in RelationalLaws/*.lean; do
+    ns=$(sed -n 's/^namespace //p' "$f" | head -1)
+    sed -n 's/^theorem \([A-Za-z_][A-Za-z0-9_]*\).*/\1/p' "$f" | while read -r t; do
+      echo "#print axioms $ns.$t"
+    done
   done
 } > "$AX"
 OUT=$(lake env lean "$AX")
