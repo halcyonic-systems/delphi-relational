@@ -1,0 +1,5 @@
+name = "RelationalLaws"
+defaultTargets = ["RelationalLaws"]
+
+[[lean_lib]]
+name = "RelationalLaws"

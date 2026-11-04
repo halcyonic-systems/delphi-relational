@@ -1,0 +1,106 @@
+{
+  "source": {
+    "id": "louie2012",
+    "citation": "Louie, A. H. (2012). Anticipation in (M,R)-systems. International Journal of General Systems 41(1), 5-22.",
+    "doi": "10.1080/03081079.2011.622088",
+    "extracted": "2026-11-04",
+    "note": "Quotes are verbatim from the PDF's text layer. Where a quote contains notation the text layer garbles, the notation is restored and quote_note says so."
+  },
+  "claims": [
+    {
+      "id": "louie2012-01",
+      "label": "Postulate of Life: an organism is whatever realizes an (M,R)-system",
+      "statement": "A natural system is an organism if and only if it realizes an (M,R)-system.",
+      "quote": "A natural system is an organism if and only if it realizes an (M,R)-system.",
+      "thinker": "A. H. Louie", "year": 2012, "work": "Anticipation in (M,R)-systems", "chapter": "Sec. 1.2, p. 7",
+      "kind": "conceptual", "status": "untested", "proof": null, "verification": "untested",
+      "math": false, "theorem": false, "lean_theorems": null,
+      "formalization": {"tags": ["contingent"], "note": "A postulate, attributed by Louie to Rosen. It defines its subject and is not provable; it is testable only once 'realizes' is given an operational reading."}
+    },
+    {
+      "id": "louie2012-02",
+      "label": "Metabolic hom-sets are a proper subset of all mappings",
+      "statement": "The mappings that model metabolic processes, H(A,B), form a proper subset of all mappings B^A from A to B.",
+      "quote": "Members of H(A,B) are the mappings that model metabolic process, so clearly not all mappings in B^A qualify; thus, H(A,B) is a proper subset of B^A.",
+      "quote_note": "Notation H(A,B) and B^A restored; the text layer renders them as 'H A; B' and 'B A'.",
+      "thinker": "A. H. Louie", "year": 2012, "work": "Anticipation in (M,R)-systems", "chapter": "Sec. 1.2, p. 7",
+      "kind": "conceptual", "status": "untested", "proof": null, "verification": "untested",
+      "math": true, "theorem": false, "lean_theorems": null,
+      "formalization": {"tags": ["one"], "note": "A modelling stipulation, not a theorem. louie2012-04 shows it is load-bearing: with the full function space, replication never exists (not_replicates_full)."}
+    },
+    {
+      "id": "louie2012-03",
+      "label": "Repair maps rebuild the metabolic components",
+      "statement": "Repair is a mapping whose outputs are metabolic mappings; in the simplest case a repair is a map from B to H(A,B).",
+      "quote": "Repair may be considered as mappings that create new copies of enzymes",
+      "thinker": "A. H. Louie", "year": 2012, "work": "Anticipation in (M,R)-systems", "chapter": "Sec. 1.2, p. 7",
+      "kind": "conceptual", "status": "untested", "proof": null, "verification": "untested",
+      "math": true, "theorem": false, "lean_theorems": null,
+      "formalization": {"tags": ["one"], "note": "Encoded as the field Rep of RelationalLaws.Replication.Network."}
+    },
+    {
+      "id": "louie2012-04",
+      "label": "Replication comes for free from metabolism and repair, under conditions",
+      "statement": "In an (M,R)-system A -> B -> H(A,B), a replication map from H(A,B) to H(B,H(A,B)) can be obtained by inverting evaluation at a point b of B, but only under conditions on the mappings involved; replication is not an obligatory feature of repair.",
+      "quote": "Each entailment of replication from metabolism and repair depends on some 'stringent but not prohibitively strong conditions' imposed on the mapping(s) involved.",
+      "thinker": "A. H. Louie", "year": 2012, "work": "Anticipation in (M,R)-systems", "chapter": "Sec. 1.2, p. 8",
+      "kind": "mathematical-law", "status": "proved", "proof": "lean", "verification": "lean",
+      "math": true, "theorem": true,
+      "lean_theorems": [
+        "RelationalLaws.Replication.replicates_iff_evalInjective",
+        "RelationalLaws.Replication.not_replicates_full",
+        "RelationalLaws.Replication.replicates_constant"
+      ],
+      "formalization": {
+        "tags": ["several", "contingent"],
+        "readings": [
+          {"name": "condition", "statement": "Replication at b exists if and only if evaluation at b (repair maps to the metabolism they produce at b) is one-to-one on the admissible repairs.", "status": "proved"},
+          {"name": "restricted-hom-set", "statement": "With repairs restricted to constant maps, replication exists at every b.", "status": "proved"},
+          {"name": "full-function-space", "statement": "With every map B -> H(A,B) admitted as a repair, replication exists.", "status": "false whenever B has two points and there are two metabolisms (machine-checked counterexample)"}
+        ],
+        "note": "The quoted 'stringent conditions' are made exact: injectivity of evaluation, necessary and sufficient. Whether they hold depends on the hom-set reading, which is where encodings of Rosen part. Proved about the model only; nothing here says which reading organisms realize."
+      }
+    },
+    {
+      "id": "louie2012-05",
+      "label": "Most (M,R)-systems cannot replicate",
+      "statement": "The conditions for entailment closure will usually not be satisfied, so most (M,R)-systems cannot replicate.",
+      "quote": "It may be expected that these conditions for 'entailment closure' will not usually be satisfied, and hence that most (M,R)-systems cannot replicate.",
+      "thinker": "A. H. Louie", "year": 2012, "work": "Anticipation in (M,R)-systems", "chapter": "Sec. 1.2, pp. 8-9",
+      "kind": "prediction", "status": "untested", "proof": null, "verification": "untested",
+      "math": true, "theorem": false, "lean_theorems": null,
+      "formalization": {"tags": ["several"], "note": "'Most' needs a measure over (M,R)-systems that the source does not give. Under the full-function-space reading, not_replicates_full gives 'none' rather than 'most'; under restricted readings the share depends on the restriction. Open."}
+    },
+    {
+      "id": "louie2012-06",
+      "label": "Replicability is relational, not mechanism-specific",
+      "statement": "Replicability in an (M,R)-system is a relational result, independent of any particular physical mechanism; nucleic-acid replication is one realization among many.",
+      "quote": "It is also important to note that replicability is a relational result; i.e. independent of any particular physical mechanism or realization.",
+      "thinker": "A. H. Louie", "year": 2012, "work": "Anticipation in (M,R)-systems", "chapter": "Sec. 1.2, p. 8",
+      "kind": "conceptual", "status": "untested", "proof": null, "verification": "untested",
+      "math": false, "theorem": false, "lean_theorems": null,
+      "formalization": null
+    },
+    {
+      "id": "louie2012-07",
+      "label": "Metabolism, repair and replication are roles, not kinds",
+      "statement": "In the chain f, Phi, beta, the last two maps are themselves an (M,R)-system with Phi as metabolism and beta as repair; which map counts as metabolism, repair or replication depends on the system it is read in.",
+      "quote": "there is nothing intrinsic about the biological qualities of metabolism, repair, and replication; our perception of them depends on the total system in which they are embedded.",
+      "thinker": "A. H. Louie", "year": 2012, "work": "Anticipation in (M,R)-systems", "chapter": "Sec. 1.2, p. 9",
+      "kind": "mathematical-law", "status": "proved", "proof": "lean", "verification": "lean",
+      "math": true, "theorem": true,
+      "lean_theorems": ["RelationalLaws.Replication.repair_is_metabolism_up"],
+      "formalization": {"tags": ["identity"], "note": "Follows from the types alone: a repair B -> H(A,B) is a metabolism A' -> B' with A' = B and B' = H(A,B), and a replication map has the type of a repair one level up."}
+    },
+    {
+      "id": "louie2012-08",
+      "label": "Closure to efficient causation is stricter than containing a causal cycle",
+      "statement": "Systems closed to efficient causation are a proper subset of systems that contain a closed path of efficient causation.",
+      "quote": "The class of systems that are closed to efficient causation forms a proper subset of the class of systems that contain a closed path of efficient causation.",
+      "thinker": "A. H. Louie", "year": 2012, "work": "Anticipation in (M,R)-systems", "chapter": "Sec. 4, p. 13",
+      "kind": "mathematical-law", "status": "untested", "proof": null, "verification": "untested",
+      "math": true, "theorem": false, "lean_theorems": null,
+      "formalization": {"tags": ["one"], "note": "Next Lean candidate: on a digraph of efficient-cause entailments, 'every process lies on a cycle' implies 'some cycle exists', and a graph with one cycle and one process off it separates them."}
+    }
+  ]
+}
