@@ -119,7 +119,7 @@
             "status": "false whenever B has two points and there are two metabolisms (machine-checked counterexample)"
           }
         ],
-        "note": "The quoted 'stringent conditions' are made exact: injectivity of evaluation, necessary and sufficient. Whether they hold depends on the hom-set reading, which is where encodings of Rosen part. Proved about the model only; nothing here says which reading organisms realize."
+        "note": "The quoted 'stringent conditions' are made exact: injectivity of evaluation, necessary and sufficient. Whether they hold depends on the hom-set reading, which is where encodings of Rosen part. Proved about the model only; nothing here says which reading organisms realize. Letelier et al. (2006, doi:10.1016/j.jtbi.2005.07.007) state the one-to-one condition and the proper-subset requirement informally; this is the machine-checked, necessary-and-sufficient form."
       }
     },
     {
@@ -313,7 +313,7 @@
             "status": "proved satisfiable: a two-point cell in which the whole loop closes"
           }
         ],
-        "note": "'Isomorphic identification between the sets' is read as a bijection. The full-function-space result needs only onto-ness, so it holds for any reading that requires every replication map to be some point of B. If the identification were a mere map, it would itself be an efficient cause needing entailment."
+        "note": "'Isomorphic identification between the sets' is read as a bijection. The full-function-space result needs only onto-ness, so it holds for any reading that requires every replication map to be some point of B. If the identification were a mere map, it would itself be an efficient cause needing entailment. Letelier et al. (2006) note informally that the sets must be 'small enough' and that Rosen's full function spaces are 'too big'; Cantor's argument is the exact form of that remark."
       }
     }
   ]

@@ -1,3 +1,4 @@
+-- expect: Did not find an occurrence of the pattern
 /-
 Broken variant: MUST NOT compile.
 

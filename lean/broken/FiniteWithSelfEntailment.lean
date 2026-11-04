@@ -1,3 +1,4 @@
+-- expect: Type mismatch
 /-
 Broken variant: MUST NOT compile.
 

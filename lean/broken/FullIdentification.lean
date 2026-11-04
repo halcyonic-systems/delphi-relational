@@ -1,3 +1,4 @@
+-- expect: Application type mismatch
 /-
 Broken variant: MUST NOT compile.
 

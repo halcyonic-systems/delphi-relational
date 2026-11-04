@@ -1,3 +1,4 @@
+-- expect: Tactic `assumption` failed
 /-
 Broken variant: MUST NOT compile.
 

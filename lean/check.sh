@@ -3,8 +3,8 @@
 #   1. the library builds;
 #   2. no `sorry`, and every theorem and definition uses only Lean's standard axioms
 #      (propext, Classical.choice, Quot.sound);
-#   3. every file in broken/ fails to compile, and fails on a proof error,
-#      not on a missing name or a syntax slip.
+#   3. every file in broken/ fails to compile, with the error named on its first
+#      line ('-- expect: ...'), so a typo or a missing import cannot pass as a failure.
 set -eu
 cd "$(dirname "$0")"
 
@@ -15,7 +15,7 @@ if grep -rn --include='*.lean' -w 'sorry' RelationalLaws; then
   echo "FAIL: sorry found"; exit 1
 fi
 
-AX=$(mktemp -t axioms).lean
+mkdir -p .lake && AX=.lake/axioms.lean
 {
   echo 'import RelationalLaws'
   # every theorem and definition in every module, qualified by the module's namespace
@@ -35,12 +35,17 @@ if [ -n "$BAD" ]; then echo "FAIL: non-standard axioms: $BAD"; exit 1; fi
 echo "axioms: standard only"
 
 for f in broken/*.lean; do
+  # each broken file names, on its first line, the error it must fail with
+  expect=$(sed -n '1s/^-- expect: //p' "$f")
+  if [ -z "$expect" ]; then
+    echo "FAIL: $f has no '-- expect:' first line"; exit 1
+  fi
   if ERR=$(lake env lean "$f" 2>&1); then
     echo "FAIL: $f compiled"; exit 1
   fi
-  if echo "$ERR" | grep -q -E 'unknown (identifier|constant)|unexpected token'; then
-    echo "FAIL: $f fails for the wrong reason:"; echo "$ERR"; exit 1
+  if ! echo "$ERR" | grep -q -F "$expect"; then
+    echo "FAIL: $f fails, but not with the expected error ($expect):"; echo "$ERR"; exit 1
   fi
-  echo "broken: $f fails as required ($(echo "$ERR" | grep -m1 error | sed 's/.*error: //'))"
+  echo "broken: $f fails as required ($expect)"
 done
 echo "all checks passed"
