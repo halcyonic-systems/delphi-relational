@@ -9,6 +9,8 @@ The text layer is normalized before matching, and each rule is listed here:
   - running heads and page numbers are dropped;
   - curly quotes become straight quotes; whitespace collapses;
   - '(M,R)system' becomes '(M,R)-system' (a hyphen lost at a line break, checked on the page image);
+  - claims marked quote_check: page-image are skipped and listed; their text layer is unusable
+    and the quote was checked against the rendered page instead;
   - for claims with a quote_note, 'H A; B' becomes 'H(A,B)', 'B A' becomes 'B^A',
     and the space the text layer leaves before punctuation after notation is dropped.
 """
@@ -29,6 +31,9 @@ norm = lambda s: re.sub(r"\s+", " ", s.replace("‘", "'").replace("’", "'")).
 claims = json.loads((Path(__file__).parent.parent / "claims.json").read_text())["claims"]
 bad = 0
 for c in claims:
+    if c.get("quote_check") == "page-image":
+        print("page " + c["id"] + "  (checked against the rendered page; text layer unusable)")
+        continue
     hay = notation if c.get("quote_note") else text
     ok = norm(c["quote"]) in re.sub(r"\s+", " ", hay)
     bad += not ok

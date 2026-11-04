@@ -273,6 +273,48 @@
         ],
         "note": "Louie states the equivalence for natural systems through the phrase 'has a model', and says it lets the term be used on formal systems. Taken on a single formal system, with the system as its own model, only one direction holds. Whether some other model always restores the equivalence depends on what counts as a model, which the paper does not fix here."
       }
+    },
+    {
+      "id": "louie2012-10",
+      "label": "The loop closes by identifying each point b with a replication map",
+      "statement": "Replication becomes entailed within an (M,R)-system by identifying the set B with the set of replication maps H(H(A,B), H(B,H(A,B))), each point b with the inverse of evaluation at b; no new efficient cause is added.",
+      "quote": "An isomorphic identification between the sets B and H(H(A,B),H(B,H(A,B))) (i.e. between b ∈ B and β) is made – Rosen uses one due to the 'inverse evaluation map' with β = b̂⁻¹.",
+      "quote_check": "page-image",
+      "quote_note": "The text layer interleaves this sentence with the one before it and garbles the notation; the quote was checked against the rendered page. The general form, for any three maps in a hierarchy of hom-sets, is on p. 12.",
+      "thinker": "A. H. Louie",
+      "year": 2012,
+      "work": "Anticipation in (M,R)-systems",
+      "chapter": "Sec. 1.2, p. 8",
+      "kind": "mathematical-law",
+      "status": "proved",
+      "proof": "lean",
+      "verification": "lean",
+      "math": true,
+      "theorem": true,
+      "lean_theorems": [
+        "RelationalLaws.Loop.no_identification_full",
+        "RelationalLaws.Loop.boolCell_closes",
+        "RelationalLaws.Loop.boolCell_restricted"
+      ],
+      "formalization": {
+        "tags": [
+          "several",
+          "contingent"
+        ],
+        "readings": [
+          {
+            "name": "full-function-space",
+            "statement": "Every map H(A,B) -> H(B,H(A,B)) counts as a replication map, and B is identified with all of them.",
+            "status": "false whenever A is nonempty and B has two points: no map from B reaches them all (Cantor's diagonal argument, machine-checked)"
+          },
+          {
+            "name": "restricted-hom-sets",
+            "statement": "The replication maps are exactly Rosen's inverse evaluations, one per point of B, and the repairs are restricted so that each inverse exists.",
+            "status": "proved satisfiable: a two-point cell in which the whole loop closes"
+          }
+        ],
+        "note": "'Isomorphic identification between the sets' is read as a bijection. The full-function-space result needs only onto-ness, so it holds for any reading that requires every replication map to be some point of B. If the identification were a mere map, it would itself be an efficient cause needing entailment."
+      }
     }
   ]
 }
