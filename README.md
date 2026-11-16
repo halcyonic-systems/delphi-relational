@@ -107,6 +107,10 @@ python3 build/check-quotes.py <path to the Louie 2012 PDF>
 
 Open questions are filed as issues: Rosen's non-computability claim with its readings separated; a pre-registered test of closure on real metabolic networks; and folding these claims into DELPHI.
 
+## License
+
+Apache-2.0, the same license as DELPHI's Lean library ([fractastical/leanbio](https://github.com/fractastical/leanbio)). See `LICENSE`.
+
 ## References
 
 - Louie, A. H. (2012). Anticipation in (M,R)-systems. *International Journal of General Systems* 41(1), 5-22. [doi:10.1080/03081079.2011.622088](https://doi.org/10.1080/03081079.2011.622088)
