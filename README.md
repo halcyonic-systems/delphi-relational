@@ -2,7 +2,7 @@
 
 Claims from relational biology for [DELPHI](https://github.com/fractastical/delphi), with Lean 4 proofs that say exactly which reading of each claim holds.
 
-DELPHI collects candidate laws of biology as source-cited claims, proves them in Lean where they are mathematics, and tests them against data where they are empirical. Its graph has about 1,800 claims, and its laws are about quantities: scaling, growth, geometry. None of them mentions Rosen, Louie, Rashevsky, (M,R)-systems or closure to efficient causation (checked against the public claim graph, build of 2026-11-03).
+DELPHI collects candidate laws of biology as source-cited claims, proves them in Lean where they are mathematics, and tests them against data where they are empirical. Its graph has about 2,100 claims, and its laws are about quantities: scaling, growth, geometry. None of them mentions Rosen, Louie, Rashevsky, (M,R)-systems or closure to efficient causation (checked against the public claim graph, build of 2026-11-08).
 
 This repository adds one claim source on those topics: ten claims from Louie (2012) on Rosen's (M,R)-systems, in DELPHI's claim format and following its rules for proofs. The repository root is laid out as a DELPHI claim source, so it can be copied into `claim-sources/relational-biology/` as is.
 
