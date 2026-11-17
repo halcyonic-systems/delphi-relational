@@ -52,9 +52,9 @@ To make replication itself entailed within the system, Louie (p. 8) identifies t
 
 | Result | Known before | Added here |
 |---|---|---|
-| 1. Replication needs one-to-one evaluation, which fails on full function spaces | Letelier et al. (2006) state this informally: evaluation must be one-to-one, so the set of admissible maps must be a proper subset of all maps and no larger than its target. They give an arithmetic example. | The condition as necessary and sufficient, machine-checked, with the counterexample |
+| 1. Replication needs one-to-one evaluation, which fails on full function spaces | Letelier et al. (2006) state this in prose: evaluation must be one-to-one (p. 955, footnote 11, attributed to Rosen), so the set of admissible maps must be a proper subset of all maps (pp. 952, 955) and no larger than its target (p. 956). They give an arithmetic example (Sec. 6.1, pp. 956-957). | The condition as necessary and sufficient, machine-checked, with the counterexample |
 | 2. Two definitions of closure | No statement of the gap found in the works listed below | The two separated on a fixed formal system; claim 08 shown to depend on the definition; the finite, no-self-entailment repair |
-| 3. Identifying `b` with β needs small sets | Letelier et al. (2006): invertible evaluations exist "if the set S is small enough", and Rosen's full function spaces are "too big" | Cantor's obstruction stated and machine-checked (onto-ness alone fails), and a minimal cell in which the loop closes |
+| 3. Identifying `b` with β needs small sets | Letelier et al. (2006, p. 956): invertible evaluations exist "if the set S is small enough", and Rosen's full function spaces are "too big" | Cantor's obstruction stated and machine-checked (onto-ness alone fails), and a minimal cell in which the loop closes |
 
 No formalization of (M,R)-systems in Lean, Coq, Agda or Isabelle turned up in a search on 2026-11-04. Gatherer & Galpin (2013) model them in process algebra.
 
