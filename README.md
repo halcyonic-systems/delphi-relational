@@ -6,6 +6,14 @@ DELPHI collects candidate laws of biology as source-cited claims, proves them in
 
 This repository adds one claim source on those topics: ten claims from Louie (2012) on Rosen's (M,R)-systems, in DELPHI's claim format and following its rules for proofs. The repository root is laid out as a DELPHI claim source, so it can be copied into `claim-sources/relational-biology/` as is.
 
+## Status: a staging source
+
+This repository exists to hand these claims to DELPHI. It is not meant to become a project of its own. DELPHI's public repository does not hold its claim sources, so there is no place to send claims as a pull request; they are laid out here in DELPHI's format for the maintainers to copy in.
+
+The proofs go to [LeanBio](https://github.com/fractastical/leanbio), DELPHI's Lean library, one pull request per law. The replication condition is ported to LeanBio's toolchain (Lean 4.35.0 with Mathlib) and is proposed there first. The closure and loop modules will follow the same route. Once the claims and proofs are in DELPHI, the plan is to archive this repository.
+
+Review is wanted. Lean checks that each proof follows from its statement. Whether each statement is a fair reading of Louie's text is a judgment that needs someone who knows relational biology, and no such specialist has reviewed the encodings yet.
+
 ## Why relational biology, and why Lean
 
 Rosen's (M,R)-systems model a cell as metabolism, repair and replication, each producing the next. Rosen claimed that such a system can make all of its own machinery (it is closed to efficient causation), and that such a system has no computable model. These claims have been disputed for decades. Chu & Ho (2006) argued that Rosen's central proof fails. Mossio, Longo & Stewart (2009) gave a computable expression of closure. Cárdenas et al. (2010) re-examined the conditions for closure.
@@ -102,6 +110,7 @@ python3 build/check-quotes.py <path to the Louie 2012 PDF>
 - Each result covers one encoding: hom-sets as predicates on function spaces, and formal systems as processes with an entailment relation. Category-theoretic, λ-calculus and process-algebra encodings are not covered.
 - The claims come from Louie (2012) only. Louie's book (2009) may define these terms more carefully; it has not been checked.
 - These claims have not been through DELPHI's assess and publish stages: no assessor scores, no nanopublications.
+- No specialist in relational biology has reviewed the encodings. The author is not one.
 
 ## Next
 
